@@ -8,7 +8,7 @@ class Load{
 	}
 
 	public function view($fileName, $data = false){
-		if($data == true){
+		if($data){
 			extract($data);
 		}
 		include 'app/views/'.$fileName.'.php';

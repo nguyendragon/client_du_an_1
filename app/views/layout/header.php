@@ -1,7 +1,11 @@
+<?php
+Session::init();
+?>
+
 <header class="border-b-2">
     <div class="conten flex m-2">
         <div class="dropdown">
-            <button class="dropbtn flex"><img src="<?=BASE_URL?>/public/images/img01.png" alt="" class="w-7">
+            <button class="dropbtn flex"><img src="<?= BASE_URL ?>/public/images/img01.png" alt="" class="w-7">
                 <p class="px-2">Vietnamese</p>
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -51,7 +55,7 @@
 
     <div class="container flex">
         <div class="m-2">
-            <a href="<?=BASE_URL?>"><img src="<?=BASE_URL?>/public/images/img03.png" alt="" width="120px"></a>
+            <a href="<?= BASE_URL ?>"><img src="<?= BASE_URL ?>/public/images/img03.png" alt="" width="120px"></a>
         </div>
         <div class="dropdown">
             <button class="dropbtn1 flex">
@@ -105,10 +109,16 @@
             <a href="#">Cửa hàng chu đáo</a>
         </div>
 
-        <div class=" m-2 px-10">
-            <a class="hover:text-white hover:bg-black text-black font-bold bg-gray-200  px-4 rounded-xl py-2" href="<?=BASE_URL?>/user/login">Đăng nhập</a>
-        </div>
-
+        <?php if (!isset($_SESSION['token'])) : ?>
+            <div class=" m-2 px-10">
+                <a class="hover:text-white hover:bg-black text-black font-bold bg-gray-200  px-4 rounded-xl py-2" href="<?= BASE_URL ?>/user/login">Đăng nhập</a>
+            </div>
+        <?php endif ?>
+        <?php if (isset($_SESSION['token'])) : ?>
+            <div class=" m-2 px-10">
+                <a class="hover:text-white hover:bg-black text-black font-bold bg-gray-200  px-4 rounded-xl py-2" href="<?= BASE_URL ?>/user/profile">Tài khoản</a>
+            </div>
+        <?php endif ?>
 
     </div>
 </header>

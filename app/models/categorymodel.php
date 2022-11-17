@@ -73,6 +73,12 @@ class categorymodel extends DModel{
         $sql = "SELECT * FROM $table_product ORDER BY $table_product.id_product DESC";
         return $this->db->select($sql);
     }
+
+    public function list_restaurant_index($table_restaurant){
+        $sql = "SELECT * FROM $table_restaurant ORDER BY $table_restaurant.id_restaurant DESC";
+        return $this->db->select($sql);
+    }
+
     public function product_hot($table_product){
         $sql = "SELECT * FROM $table_product WHERE product_hot = 1 ORDER BY $table_product.id_product DESC";
         return $this->db->select($sql);
@@ -91,23 +97,19 @@ class categorymodel extends DModel{
     public function deleteproduct($table_product,$cond){
         return $this->db->delete($table_product,$cond);
     }
+
     public function productbyid($table,$cond){
         $sql = "SELECT * FROM $table WHERE $cond";
         return $this->db->select($sql);
     }
-    public function related_product_home($table,$table_product,$cond_related){
-            $sql = "SELECT * FROM $table,$table_product WHERE $cond_related";
-        return $this->db->select($sql);
+
+    public function restaurantByLink($table,$link){
+        $sql = "SELECT * FROM $table WHERE link = '".$link."'";
+        return $this->db->select($sql)[0];
     }
-    public function updateproduct($table_category_product,$data,$cond){
-        return $this->db->update($table_category_product,$data,$cond);
-    }
+
     public function details_product_home($table,$table_product,$cond){
         $sql = "SELECT * FROM $table_product,$table WHERE $cond";
-        return $this->db->select($sql);
-    }
-    public function post_index($post){
-        $sql = "SELECT * FROM $post ORDER BY id_post DESC LIMIT 5";
         return $this->db->select($sql);
     }
 }

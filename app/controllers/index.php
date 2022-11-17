@@ -15,10 +15,12 @@
 		public function homepage(){
 			$table_category = 'category';
 			$table_product = 'product';
+			$table_restaurant = 'restaurants';
 			$categorymodel = $this->load->model('categorymodel');
 
 			$data['category'] = $categorymodel->category_home($table_category);
 			$data['product'] = $categorymodel->list_product_index($table_product);
+			$data['restaurants'] = $categorymodel->list_restaurant_index($table_restaurant);
 			$this->load->view('home', $data);
 
 		}

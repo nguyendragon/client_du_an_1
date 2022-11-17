@@ -1,6 +1,6 @@
 <?php 
 
-	class product extends DController{
+	class restaurant extends DController{
 		
 		public function __construct(){
 			$data = array();
@@ -55,28 +55,20 @@
 			$this->load->view('footer');
 		}
 
-		public function details($id){
-			// $table = 'tbl_category_product';
-			// $table_product = 'tbl_product';
-			// $table_post = 'tbl_category_post';
-			// $cond = "$table_product.id_category_product=$table.id_category_product AND $table_product.id_product='$id'";
-			
-			// $categorymodel = $this->load->model('categorymodel');
-			// $data['category'] = $categorymodel->category_home($table);
-			// $data['category_post'] = $categorymodel->categorypost_home($table_post);
-			// $data['details_product'] = $categorymodel->details_product_home($table,$table_product,$cond);
+		public function details($link){
+			$table1 = 'restaurants';
+			$table2 = 'product';
+			$table3 = 'category';
+			$categorymodel = $this->load->model('restaurantmodel');
+			$data['restaurant'] = $categorymodel->restaurantByLink($table1, $link);
 
-			// foreach($data['details_product'] as $key => $cate){
-			// 	$id_cate = $cate['id_category_product'];
-			// 	$this->load->title = $cate['title_product'];
-			// 	$this->load->desc = $cate['desc_product'];
-			// 	$this->load->image = BASE_URL.'/public/uploads/product/'.$cate['image_product'];
-			// }
+			$id_res = $data['restaurant']['id_restaurant'];
+			$id_cate = $data['restaurant']['id_cate'];
 
-			// $cond_related = "$table_product.id_category_product=$table.id_category_product AND $table.id_category_product = '$id_cate' AND $table_product.id_product NOT IN('$id')";
-			// $data['related'] = $categorymodel->related_product_home($table,$table_product,$cond_related);
+			$data['product'] = $categorymodel->productById($table2, $id_res);
+			$data['category'] = $categorymodel->categoryById($table3, $id_cate)[0];
 
-			$this->load->view('details_product');
+			$this->load->view('details_restaurant', $data);
 		}
 
 

@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="public/css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/public/css/fontawesome/all.min.css">
 </head>
 
 <body>
@@ -93,74 +94,28 @@
             </div>
 
             <div class="">
-                <h1 class="font-bold text-xl m-2">KHÁM PHÁ MÓN MỚI</h1>
+                <h1 class="font-bold text-xl m-2 uppecase">KHÁM PHÁ MÓN MỚI</h1>
                 <div style="display:grid; grid-template-columns: repeat(6,1fr); gap:10px ">
-                    <div class="rounded-2xl bg-white px-2 py-4 "><a href="">
-                            <img src="public/images/bunbo.jfif" alt="">
-                            <h2 class="font-bold text py-1 hover:text-red-600">Bún bò Hà</h2>
-                            <p class="font-bold py-1 hover:text-red-600">40.000đ</p>
-                            <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
-                            </p>
-                            <div class="text-center py-4 px-2">
-                                <a class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="rounded-2xl bg-white px-2 py-4 "><a href="">
-                            <img src="public/images/bunbo.jfif" alt="">
-                            <h2 class="font-bold text py-1 hover:text-red-600">Bún bò Hà</h2>
-                            <p class="font-bold py-1 hover:text-red-600">40.000đ</p>
-                            <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
-                            </p>
-                            <div class="text-center py-4 px-2">
-                                <a class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="rounded-2xl bg-white px-2 py-4 "><a href="">
-                            <img src="public/images/bunbo.jfif" alt="">
-                            <h2 class="font-bold text py-1 hover:text-red-600">Bún bò Hà</h2>
-                            <p class="font-bold py-1 hover:text-red-600">40.000đ</p>
-                            <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
-                            </p>
-                            <div class="text-center py-4 px-2">
-                                <a class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="rounded-2xl bg-white px-2 py-4 "><a href="">
-                            <img src="public/images/bunbo.jfif" alt="">
-                            <h2 class="font-bold text py-1 hover:text-red-600">Bún bò Hà</h2>
-                            <p class="font-bold py-1 hover:text-red-600">40.000đ</p>
-                            <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
-                            </p>
-                            <div class="text-center py-4 px-2">
-                                <a class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="rounded-2xl bg-white px-2 py-4 "><a href="">
-                            <img src="public/images/bunbo.jfif" alt="">
-                            <h2 class="font-bold text py-1 hover:text-red-600">Bún bò Hà</h2>
-                            <p class="font-bold py-1 hover:text-red-600">40.000đ</p>
-                            <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
-                            </p>
-                            <div class="text-center py-4 px-2">
-                                <a class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="rounded-2xl bg-white px-2 py-4 "><a href="">
-                            <img src="public/images/bunbo.jfif" alt="">
-                            <h2 class="font-bold text py-1 hover:text-red-600">Bún bò Hà</h2>
-                            <p class="font-bold py-1 hover:text-red-600">40.000đ</p>
-                            <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
-                            </p>
-                            <div class="text-center py-4 px-2">
-                                <a class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
-                            </div>
-                        </a>
-                    </div>
+                    <?php
+                        foreach($product as $key => $item) :
+                    ?>
+                        <div class="rounded-2xl bg-white px-2 py-4 ">
+                            <a href="product/details/<?=$item['id_product']?>">
+                                <div class="flex justify-center">
+                                    <img class="w-[165px] h-[165px] rounded" src="<?=BASE_IMG.$item['image']?>" alt="">
+                                </div>
+                                <h2 class="font-bold text py-1 hover:text-red-600"><?=$item['name_product']?></h2>
+                                <p class="font-bold py-1 hover:text-red-600"><?=str_replace(",",  ".", number_format($item['price']))?>đ</p>
+                                <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
+                                </p>
+                                <div class="text-center py-4 px-2">
+                                    <a
+                                    href="product/details/<?=$item['id_product']?>"
+                                    class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach ?>
                 </div>
                 <div class="font-bold text-center  py-8">
                     <a href="">XEM TẤT CẢ<i class='bx bxs-chevron-right'></i></a>
@@ -168,18 +123,20 @@
             </div>
 
             <div class="">
-                <h1 class="font-bold text-xl m-2">THƯƠNG HIỆU QUEN THUỘC</h1>
+                <h1 class="font-bold text-xl m-2 uppecase">Thử quán mới</h1>
                 <div style="display:grid; grid-template-columns: repeat(6,1fr); gap:10px ">
-                    <?php
-                    foreach($product as $key => $item) :
+                    <?php 
+                    foreach($restaurants as $key => $item) :
                     ?>
                         <div class="rounded-2xl bg-white px-2 py-4 ">
-                            <a href="product/details/<?=$item['id_product']?>">
-                                <img src="<?=$item['image']?>" alt="">
-                                <h2 class="font-bold text py-1 hover:text-red-600"><?=$item['name_product']?></h2>
-
+                            <a href="restaurant/details/<?=$item['link']?>">
+                                <div class="flex justify-center">
+                                    <img class="w-[165px] h-[165px] rounded" src="<?=$item['images']?>" alt="">
+                                </div>
+                                <h2 class="font-bold text py-1 hover:text-red-600"><?=$item['name']?></h2>
                                 <p class=" hover:text-red-600"><i class=" text-red-600 fa-sharp fa-solid fa-location-dot"></i> 0.3km</p>
-                                <div class="flex py-2  hover:text-red-600"><img class="w-6" src="public/images/sale3.png" alt="">
+                                <div class="flex py-2  hover:text-red-600">
+                                    <img class="w-6" src="public/images/sale3.png" alt="">
                                     <div class="px-2">Giảm 10.000đ</div>
                                 </div>
                             </a>
