@@ -15,10 +15,13 @@ class ordermodel extends DModel{
 
     public function listOrders($status, $id_user){
         if ($status == 4) {
-            $sql = "SELECT * FROM orders WHERE id_user=? ORDER BY id_order DESC";
+            // $sql = "SELECT * FROM orders WHERE id_user=? ORDER BY id_order DESC";
+            $sql = "SELECT orders.*, product.name_product, product.image FROM orders LEFT JOIN product
+            ON orders.id_product = product.id_product WHERE id_user=? ORDER BY orders.id_order DESC";
             return $this->db->pdo_query($sql, $id_user);
         } else {
-            $sql = "SELECT * FROM orders WHERE status_order=? AND id_user=? ORDER BY id_order DESC";
+            $sql = "SELECT orders.*, product.name_product, product.image FROM orders LEFT JOIN product
+            ON orders.id_product = product.id_product WHERE status_order=? AND id_user=? ORDER BY orders.id_order DESC";
             return $this->db->pdo_query($sql, $status, $id_user);
         }
     }

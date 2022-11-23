@@ -20,7 +20,7 @@
                             </div>
                             <div class="flex justify-center items-center bg-[#f5f5f5] py-6">
                                 <span>Mã voucher</span>
-                                <input class="border border-[#c8d6e5] mx-2 px-20 py-2 rounded-sm" type="search" name="" id="">
+                                <input class="border border-[#c8d6e5] mx-2 px-20 py-2 rounded-sm outline-none uppercase" type="search" name="" id="" placeholder="Enter the code" spellcheck>
                                 <button class="bg-[#c8d6e5] hover:bg-[#ff3f34] py-2 px-4 font-bold text-white rounded-sm">Lưu</button>
                             </div>
 

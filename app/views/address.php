@@ -31,8 +31,10 @@
                                     <div class="border-b-[1px] pb-3">
                                         <div class="flex justify-between px-6">
                                             <div>
-                                                <div class="py-3"><span><?= $value['fullname'] ?></span>
-                                                    <span><?= $value['phone'] ?></span>
+                                                <div class="py-3">
+                                                    <span><?= $value['fullname'] ?></span>
+                                                    <span> | </span>
+                                                    <span>(+84) <?= $value['phone'] ?></span>
                                                 </div>
 
                                                 <div class="font-light">

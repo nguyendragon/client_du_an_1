@@ -3,18 +3,8 @@
         <div class="dropdown">
             <button class="dropbtn flex"><img src="<?= BASE_URL ?>/public/images/img01.png" alt="" class="w-7">
                 <p class="px-2">Vietnamese</p>
-                <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-down mt-1"></i>
             </button>
-            <div class="dropdown-content">
-                <div class="flex px-2 py-2 m-2">
-                    <img src="img/img02.png" alt="" class="w-7">
-                    <a href="#">English</a>
-                </div>
-                <div class="flex px-2 py-2 m-2">
-                    <img src="img/img01.png" alt="" class="w-7">
-                    <a href="#">Vietnamese</a>
-                </div>
-            </div>
         </div>
 
         <div class="flex conten2">
@@ -49,14 +39,14 @@
 
     </div>
 
-    <div class="container flex">
+    <div class="flex justify-evenly px-10">
         <div class="m-2">
             <a href="<?= BASE_URL ?>"><img src="<?= BASE_URL ?>/public/images/img03.png" alt="" width="120px"></a>
         </div>
         <div class="dropdown">
             <button class="dropbtn1 flex">
                 <p class="px-2">Hà nội</p>
-                <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-down mt-1"></i>
             </button>
             <div class="dropdown-content">
                 <div class=" px-2 ">
@@ -86,7 +76,7 @@
             </div>
         </div>
 
-        <div class=" conten2 hover:text-red-600">/
+        <div class="conten2 hover:text-red-600">
             <a href="#">Thử quán mới</a>
         </div>
         <div class=" conten2 hover:text-red-600">
@@ -107,12 +97,17 @@
 
         <?php if (!isset($_SESSION['token'])) : ?>
             <div class=" m-2 px-10">
-                <a class="hover:text-white hover:bg-black text-black font-bold bg-gray-200  px-4 rounded-xl py-2" href="<?= BASE_URL ?>/user/login">Đăng nhập</a>
+                <a 
+                class="hover:text-white hover:bg-[#f7001e] text-black font-bold bg-gray-200  px-4 rounded-xl py-2 transition-all" 
+                href="<?= BASE_URL ?>/user/login">
+                <i class="fa-solid fa-right-to-bracket mr-2"></i>Đăng nhập</a>
             </div>
         <?php endif ?>
         <?php if (isset($_SESSION['token'])) : ?>
-            <div class=" m-2 px-10">
-                <a class="hover:text-white hover:bg-black text-black font-bold bg-gray-200  px-4 rounded-xl py-2" href="<?= BASE_URL ?>/user/profile">Tài khoản</a>
+            <div class=" m-2">
+                <a 
+                class="hover:text-white hover:bg-[#f7001e] text-black font-bold bg-gray-200  px-4 rounded-xl py-2 transition-all" 
+                href="<?= BASE_URL ?>/user/profile"><i class="fa-solid fa-user"></i> Tài khoản</a>
             </div>
         <?php endif ?>
 

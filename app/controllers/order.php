@@ -37,11 +37,18 @@
 			$time = time();
 			
 			$userInfo = $user_model->getUserBySession($token);
-            
-            foreach ($_SESSION['cart'] as $index => $item) {
-                $total = ($item['price'] * $item['sl']) - ($item['sale'] * $item['sl']);
-                $order_model->addOrders($item['sl'], $item['sale'], $item['price'], $total, $item['id'], $userInfo['id_user'], $create_at, $time);
-            }
+			$addressDefault = $user_model->addressDefault($userInfo['id_user']);
+
+			if ($addressDefault) {
+				foreach ($_SESSION['cart'] as $index => $item) {
+					$total = ($item['price'] * $item['sl']) - ($item['sale'] * $item['sl']);
+					$order_model->addOrders($item['sl'], $item['sale'], $item['price'], $total, $item['id'], $userInfo['id_user'], $create_at, $time);
+				}
+				unset($_SESSION['cart']);
+				echo $this->res_json('1', "Xác nhận thành công!");
+			} else {
+				echo $this->res_json('2', "Vui lòng thêm địa chỉ nhận hàng!");
+			}
 		}
 
 		public function listOrders($status){

@@ -51,7 +51,7 @@
                         <div class="grid md:grid-cols-2">
                             <div>
                                 <div class="pt-2">
-                                    <i class="fa fa-map-marker text-red-500"></i>
+                                    <i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i>
                                     <span>7.2km</span>
                                     <span class="text-lime-500">
                                         <?= $restaurant['status'] == 1 ? 'Đang mở cửa' : 'Đóng cửa' ?>
@@ -121,11 +121,15 @@
                         <h1>ƯU ĐÃI</h1>
                     </li>
                     <li class="border-b py-2">
-                        <p><i class="fa fa-map-marker text-red-500"></i> Freeship đơn hàng dưới 2km</p>
+                        <p>
+                            <i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i>
+                            <span class="ml-3">Freeship đơn hàng dưới 2km</span>
+                        </p>
                     </li>
                     <li class="py-2">
                         <button>
-                            <i class="fa fa-certificate text-blue-500"></i> Ưu đãi
+                            <i class="fa fa-certificate text-blue-500"></i>
+                            <span class="ml-2">Ưu đãi</span>
                         </button>
                     </li>
                 </ul>

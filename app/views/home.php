@@ -17,7 +17,7 @@
             <div class="form__map">
                 <div class="form__input px-5 py-5">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" name="" id="" placeholder="Tìm quán ăn, trà sữa yêu thích đế đặt Loship giao ngay">
+                    <input type="text" name="q" id="search" class="outline-none" placeholder="Tìm quán ăn, trà sữa yêu thích đế đặt Foship giao ngay">
 
                 </div>
                 <div class="map__item px-3 py-3">
@@ -39,10 +39,12 @@
                 <div style="display:grid; grid-template-columns: repeat(10,1fr); gap:10px ">
                     <?php
                     foreach($category as $key => $cate) :  ?>
-                        <div>
-                            <img class="rounded-2xl" src="public/images/<?=$cate['images']?>" alt="">
+                        <a
+                        href="<?=BASE_URL.'/user/search/'. $cate['id_cate']?>"
+                        >
+                            <img class="rounded-2xl" src="<?=BASE_URL?>/public/images/<?=$cate['images']?>" alt="">
                             <p class="ten"><?=$cate['name_category']?></p>
-                        </div>
+                        </a>
                     <?php endforeach ?>
                 </div>
                 <div class="font-bold text-center py-8">
@@ -62,13 +64,16 @@
                                     <img class="w-[165px] h-[165px] rounded" src="<?=BASE_IMG.$item['image']?>" alt="">
                                 </div>
                                 <h2 class="font-bold text py-1 hover:text-red-600"><?=$item['name_product']?></h2>
-                                <p class="font-bold py-1 hover:text-red-600"><?=str_replace(",",  ".", number_format($item['price']))?>đ</p>
+                                <p class="font-bold py-1 hover:text-red-600">
+                                    <del class="ml-1"><?=str_replace(",",  ".", number_format($item['price']))?>đ</del>
+                                    <span class="text-red-500 ml-1"><?=str_replace(",",  ".", number_format($item['price'] - $item['sale']))?>đ</span>
+                                </p>
                                 <p><i class="hover:text-red-600 text-red-600 fa-sharp fa-solid fa-location-dot"></i> 3.3km
                                 </p>
                                 <div class="text-center py-4 px-2">
                                     <a
                                     href="product/add_cart/<?=$item['id_product']?>"
-                                    class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
+                                    class="hover:text-white hover:bg-[#f7001e] text-sm border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold transition-all">Thêm vào giỏ</a>
                                 </div>
                             </a>
                         </div>
@@ -114,6 +119,14 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://kit.fontawesome.com/459431e08d.js" crossorigin="anonymous"></script>
     <script src="public/js/gt.js"></script>
+    <script>
+        $('#search').keyup(function(e) {
+            let query = $('#search').val().trim();
+            if (e.keyCode == 13) {
+                window.location.href = '<?= BASE_URL."/user/search?q=" ?>' + query;
+            }
+        });
+    </script>
 </body>
 
 </html>

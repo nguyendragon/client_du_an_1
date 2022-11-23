@@ -62,6 +62,12 @@ class usermodel extends DModel
         return $this->db->pdo_query_one($sql, $id_address);
     }
 
+    public function addressDefault($id_user)
+    {
+        $sql = "SELECT * FROM address WHERE id_user=? AND address_default =1";
+        return $this->db->pdo_query_one($sql, $id_user);
+    }
+
     public function addAddress($fullname, $phone, $city, $district, $ward, $detail, $address_default = 0, $id_user, $create_at, $time)
     {
         $sql = "INSERT INTO address SET fullname=?,phone=?,city=?,district=?,ward=?,detail=?,address_default=?,id_user=?,create_at=?,time=?";

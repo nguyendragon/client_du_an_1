@@ -13,53 +13,16 @@
 <body>
     <div class="trangchu">
         <?php include_once "layout/header.php"; ?>
-        <!-- <div class="h-full w-full mt-20">
-            <div class="container mx-auto">
-                <dh-component>
-                    <div class="w-11/12 lg:w-2/6 mx-auto">
-                        <div class="bg-gray-200 h-1 flex items-center justify-between">
-                            <div class="w-1/3 bg-indigo-700 h-1 flex items-center">
-                                <div class="bg-indigo-700 h-6 w-6 rounded-full shadow flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                        <path d="M5 12l5 5l10 -10" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="w-1/3 flex justify-between bg-indigo-700 h-1 items-center relative">
-                                <div class="absolute right-0 -mr-2">
-                                    <div class="relative bg-white shadow-lg px-2 py-1 rounded mt-16 -mr-12">
-                                        <svg class="absolute top-0 -mt-1 w-full right-0 left-0" width="16px" height="8px" viewBox="0 0 16 8" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <g id="Progress-Bars" transform="translate(-322.000000, -198.000000)" fill="#FFFFFF">
-                                                    <g id="Group-4" transform="translate(310.000000, 198.000000)">
-                                                        <polygon id="Triangle" points="20 0 28 8 12 8"></polygon>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        <p tabindex="0" class="focus:outline-none text-indigo-700 text-xs font-bold">Step 3: Analyzing</p>
-                                    </div>
-                                </div>
-                                <div class="bg-indigo-700 h-6 w-6 rounded-full shadow flex items-center justify-center -ml-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                        <path d="M5 12l5 5l10 -10" />
-                                    </svg>
-                                </div>
-                                <div class="bg-white h-6 w-6 rounded-full shadow flex items-center justify-center -mr-3 relative">
-                                    <div class="h-3 w-3 bg-indigo-700 rounded-full"></div>
-                                </div>
-                            </div>
-                            <div class="w-1/3 flex justify-end">
-                                <div class="bg-white h-6 w-6 rounded-full shadow"></div>
-                            </div>
-                        </div>
-                    </div>
-                </dh-component>
+        <div class="max-w-[1280px] m-auto bg-white px-4 py-2 rounded-lg drop-shadow mb-4 mt-10">
+            <div class="flex py-4">
+                <a class="text-[#007bff]" href="<?= BASE_URL ?>">Trang chủ</a>
+                <span class="px-2">/</span>
+                <a class="text-[#007bff]" href="<?= BASE_URL ?>">Sản phẩm</a>
+                <span class="px-2">/</span>
+                <a class="text-[#999]" href="<?= BASE_URL ?>">Giỏ hàng</a>
             </div>
-        </div> -->
-        <div class="max-w-[1280px] border-2 mx-auto  mt-20">
+        </div>
+        <div class="max-w-[1280px] border-2 mx-auto">
             <div class="flex">
                 <div class="w-3/4 bg-white px-10 py-5">
                     <div class="flex justify-between border-b pb-4">
@@ -108,35 +71,57 @@
                         <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
                             <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
                         </svg>
-                        Tiếp tục mua sắm
+                        <span>Tiếp tục mua sắm</span>
                     </a>
                 </div>
 
                 <div id="summary" class="w-1/4 px-8 py-5">
-                    <h1 class="font-semibold text-2xl border-b pb-4">Order Summary</h1>
+                    <h1 class="font-semibold text-2xl border-b pb-4">Thanh toán</h1>
                     <div>
-                        <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                        <select class="block p-2 text-gray-600 w-full text-sm">
-                            <option>Standard shipping - $10.00</option>
-                        </select>
+                        <label class="font-medium inline-block mb-3 text-sm uppercase">Địa chỉ nhận hàng</label>
+                        <div class="bg-white rounded-md outline-dashed outline-1 outline-offset-2 p-2 text-gray-600 w-full text-sm">
+                            <?php if ($address_default) : ?>
+                                <p class="text-[12px]">
+                                    <span><?= $address_default['fullname'] ?></span>
+                                    <span> | </span>
+                                    <span>(+84) <?= $address_default['phone'] ?></span>
+                                </p>
+                                <p class="text-[12px]">
+                                    <span><?= $address_default['detail'] ?>, <?= $address_default['ward'] ?>, <?= $address_default['district'] ?>, <?= $address_default['city'] ?></span>
+                                    <a 
+                                    href="<?=BASE_URL . '/user/address' ?>" 
+                                    class="text-[#007bff]">Thay đổi</a>
+                                </p>
+                            <?php endif ?>
+                            <?php if (!$address_default) : ?>
+                                <a href="<?=BASE_URL . '/user/address' ?>" class="block text-center text-[#007bff]">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <span>Thêm địa chỉ nhận hàng</span>
+                                </a>
+                            <?php endif ?>
+                        </div>
                     </div>
-                    <div class="py-10">
-                        <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-                        <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
+                    <div class="py-5 relative">
+                        <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Mã giảm giá</label>
+                        <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full outline-none">
+                        <button 
+                            class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase absolute right-0"
+                        >
+                            Sử dụng
+                        </button>
                     </div>
-                    <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-                    <div class="py-10">
+                    <div class="py-5">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Phương thức thanh toán</label>
                         <div class="mr-2 inline-block">
-                            <input type="radio" name="gt" value="1" id="male">
+                            <input type="radio" name="gt" checked value="1" id="male">
                             <label class="cursor-pointer" for="male">Thanh toán khi nhận hàng</label>
                         </div>
                         <div class="mr-2 inline-block">
-                            <input type="radio" name="gt" value="2" id="female">
+                            <input type="radio" name="gt" disabled value="2" id="female">
                             <label class="cursor-pointer" for="female">Ngân hàng</label>
                         </div>
                         <div class="mr-2 inline-block">
-                            <input type="radio" name="gt" value="3" id="other">
+                            <input type="radio" name="gt" disabled value="3" id="other">
                             <label class="cursor-pointer" for="other">Ví điện tử</label>
                         </div>
                     </div>
@@ -146,7 +131,12 @@
                             <span class="uppercase">Tổng thành tiền:</span>
                             <span><?= number_format($total) ?>đ</span>
                         </div>
-                        <button id="confirm_cart" class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Thanh toán</button>
+                        <?php if (!isset($_SESSION['token'])) : ?>
+                            <button onclick="return location.href='<?= BASE_URL . '/user/login' ?>'" id="confirm_cart_next" class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Thanh toán</button>
+                        <?php endif ?>
+                        <?php if (isset($_SESSION['token'])) : ?>
+                            <button id="confirm_cart" class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Thanh toán</button>
+                        <?php endif ?>
                         <button id="delete_all_cart" class="text-center bg-red-500 font-semibold hover:bg-red-600 mt-3 py-3 text-sm text-white uppercase w-full">Xóa toàn bộ</button>
                     </div>
                 </div>
@@ -182,7 +172,11 @@
                 },
                 dataType: "json",
                 success: function (response) {
-                    
+                    if (response.status == '1') {
+                        window.location.href = "<?= BASE_URL . '/user/bill' ?>"
+                    } else {
+                        window.location.href = "<?= BASE_URL . '/user/address' ?>"
+                    }
                 }
             });
         });

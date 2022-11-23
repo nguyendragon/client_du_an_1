@@ -17,6 +17,16 @@ class productmodel extends DModel{
         return $this->db->pdo_query_one($sql, $id_pro);
     }
 
+    public function productByIdCate($id_cate){
+        $sql = "SELECT * FROM product WHERE id_cate =? ";
+        return $this->db->pdo_query($sql, $id_cate);
+    }
+
+    public function productByKeyWord($keyword){
+        $sql = "SELECT * FROM product WHERE name_product LIKE ? ";
+        return $this->db->pdo_query($sql, '%' . $keyword . '%');
+    }
+
     public function productByIdRes($id_res){
         $sql = "SELECT * FROM product WHERE id_restaurant =? ";
         return $this->db->pdo_query($sql, $id_res);

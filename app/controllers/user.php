@@ -197,8 +197,29 @@
 		}
 
 		public function cart(){
-			$this->load->view('cart');
+			$user_model = $this->load->model('usermodel');
+			if (isset($_SESSION['token'])) {
+				$token = $_SESSION['token'];
+				$userInfo = $user_model->getUserBySession($token);
+				$data['address_default'] = $user_model->addressDefault($userInfo['id_user']);
+			}
+			if (!isset($_SESSION['token'])) $data['address_default'] = [];
+			$this->load->view('cart', $data);
 		} 
+
+		public function search($id_cate = null){
+			extract($_REQUEST);
+			$product_model = $this->load->model('productmodel');
+			$category_model = $this->load->model('categorymodel');
+			if ($id_cate) {
+				$data['product'] = $product_model->productByIdCate($id_cate);
+				$data['category'] = $category_model->categoryById($id_cate);
+			} else {
+				if(!isset($_GET['q'])) $q = '';
+				$data['product'] = $product_model->productByKeyWord($q);
+			}
+			$this->load->view('search', $data);
+		}
 		
 		public function logout(){
 				Session::unset('token');

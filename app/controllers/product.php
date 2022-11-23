@@ -16,12 +16,14 @@
 
 		public function add_cart($id){
 			$product_model = $this->load->model('productmodel');
+			$amount = '';
+			if (isset($_POST['amount'])) $amount = $_POST['amount'];
 			if (isset($id) && $id > 0) {
 				$data = $product_model->productById($id);
 				extract($data);
 				if (isset($_SESSION['cart'])) {
 					if (isset($_SESSION['cart'][$id]['sl'])) {
-						$_SESSION['cart'][$id]['sl'] += 1;
+						$_SESSION['cart'][$id]['sl'] += $amount ? $amount : 1;
 					} else {
 						$_SESSION['cart'][$id]['sl'] = 1;
 					}
@@ -31,7 +33,7 @@
 					$_SESSION['cart'][$id]['price'] = $price;
 					$_SESSION['cart'][$id]['sale'] = $sale;
 				} else {
-					$_SESSION['cart'][$id]['sl'] = 1;
+					$_SESSION['cart'][$id]['sl'] = $amount ? $amount : 1;
 					$_SESSION['cart'][$id]['id'] = $id;
 					$_SESSION['cart'][$id]['name_product'] = $name_product;
 					$_SESSION['cart'][$id]['image'] = $image;
