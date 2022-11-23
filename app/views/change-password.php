@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự Án 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/style.css?time=<?= time() ?>">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <?php include_once "layout/head.php" ?>
 </head>
 
 <body>
@@ -28,39 +20,32 @@
                             </div>
                         </div>
 
-                        <div class="pb-3 pt-20 px-20">
-                            <div class="flex justify-left">
-                                <div class="flex">
-                                    <div class="min-w-[170px]">
-                                        <p class="text-left">Mật khẩu hiện tại</p>
+                        <div class="mt-20 px-5">
+                            <form id="form-change-password" action="" method="post">
+                                <div class="flex items-center mb-5">
+                                    <div class="min-w-[190px]">
+                                        <p class="text-left text-[#999]">Mật khẩu hiện tại</p>
                                     </div>
-                                    <div class=""><input class="border" type="text" name="" id=""></div>
-                                    <div class="ml-2">
-                                        <button class="text-[#3498db]">quên mật khẩu?</button>
-                                    </div>
+                                    <input class="w-full p-2 border-2 outline-none" type="password" name="" id="password">
                                 </div>
-                            </div>
 
-                            <div class="flex justify-left py-3">
-                                <div class="flex">
-                                    <div class="min-w-[170px]">
-                                        <p class="text-left">Mật khẩu mới</p>
+                                <div class="flex items-center mb-5">
+                                    <div class="min-w-[190px]">
+                                        <p class="text-left text-[#999]">Mật khẩu mới</p>
                                     </div>
-                                    <div><input class="border" type="text" name="" id=""></div>
+                                    <input class="w-full p-2 border-2 outline-none" type="password" name="" id="new-password">
                                 </div>
-                            </div>
 
-                            <div class="flex justify-left">
-                                <div class="flex">
-                                    <div class="min-w-[170px]">
-                                        <p class="text-left">Xác nhận mật khẩu mới</p>
+                                <div class="flex items-center mb-5">
+                                    <div class="min-w-[190px]">
+                                        <p class="text-left text-[#999]">Xác nhận mật khẩu mới</p>
                                     </div>
-                                    <div><input class="border" type="text" name="" id=""></div>
+                                    <input class="w-full p-2 border-2 outline-none" type="password" name="" id="re-new-password">
                                 </div>
-                            </div>
-                            <div class="flex justify-left pt-4">
-                                <button class="bg-[#e74c3c] text-white py-1 px-2 rounded-sm ">Xác nhận</button>
-                            </div>
+                                <div class="pt-4">
+                                    <button id="submit-password" class="w-full bg-[#e74c3c] px-3 py-2 rounded text-white my-5">Lưu</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -70,6 +55,57 @@
         <?php include_once "layout/footer.php"; ?>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('#submit-password').click(function(e) {
+            e.preventDefault();
+            let password = $('#password').val().trim();
+            let new_password = $('#new-password').val().trim();
+            let re_new_password = $('#re-new-password').val().trim();
+
+            if (!password || !new_password || !re_new_password) {
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Vui lòng nhập đầy đủ thông tin!',
+                })
+            }
+
+            if (new_password != re_new_password) {
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Mật khẩu xác nhận không chính xác!',
+                })
+            }
+
+            $.ajax({
+                type: "POST",
+                url: `<?= BASE_URL ?>/user/editPassword`,
+                data: {
+                    password: password,
+                    new_password: new_password
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.status == '1') {
+                        Swal.fire(
+                            'Good job!',
+                            response.message,
+                            'success'
+                        );
+                        $('#form-change-password')[0].reset();
+                    } else {
+                        return Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: response.message,
+                        })
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

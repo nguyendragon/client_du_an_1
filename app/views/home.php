@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự Án 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="public/css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/public/css/fontawesome/all.min.css">
+    <?php include_once "layout/head.php" ?>
 </head>
 
 <body>
@@ -38,44 +30,9 @@
             </div>
         </div>
 
-        <div class="image-slider ">
-            <div class="image-item">
-                <div class="image">
-                    <img src="https://tea-3.lozi.vn/v1/images/resized/banner-mobile-3185-1664366358?w=393&type=o" alt="">
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="image">
-                    <img src="https://tea-3.lozi.vn/v1/images/resized/banner-mobile-3187-1664264858?w=393&type=o" alt="">
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="image">
-                    <img src="https://tea-3.lozi.vn/v1/images/resized/banner-mobile-3677-1667465173?w=393&type=o" alt="">
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="image">
-                    <img src="https://tea-3.lozi.vn/v1/images/resized/banner-mobile-2739-1655806664?w=393&type=o" alt="">
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="image">
-                    <img src="https://tea-3.lozi.vn/v1/images/resized/banner-mobile-2740-1655885066?w=393&type=o" alt="">
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="image">
-                    <img src="https://tea-3.lozi.vn/v1/images/resized/banner-mobile-3240-1664364927?w=393&type=o" alt="">
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="image">
-                    <img src="https://tea-3.lozi.vn/v1/images/resized/banner-mobile-3670-1667286026?w=393&type=o" alt="">
-                </div>
-            </div>
-        </div>
+        <?php include_once "layout/banner.php" ?>
 
+        
         <div class="sp">
             <div>
                 <h1 class="font-bold text-xl m-2">CHỌN THEO THỂ LOẠI</h1>
@@ -110,7 +67,7 @@
                                 </p>
                                 <div class="text-center py-4 px-2">
                                     <a
-                                    href="product/details/<?=$item['id_product']?>"
+                                    href="product/add_cart/<?=$item['id_product']?>"
                                     class=" hover:text-white hover:bg-black border-gray-400 px-8 py-2 rounded-xl text-black bg-gray-200 font-bold  " href="">Chọn mua</a>
                                 </div>
                             </a>

@@ -8,47 +8,22 @@
 
 		}
 		public function index(){
-			
-
 			$this->homepage();
 		}
 		public function homepage(){
-			$table_category = 'category';
-			$table_product = 'product';
-			$table_restaurant = 'restaurants';
-			$categorymodel = $this->load->model('categorymodel');
+			$category_model = $this->load->model('categorymodel');
+			$product_model = $this->load->model('productmodel');
+			$restaurant_model = $this->load->model('restaurantmodel');
 
-			$data['category'] = $categorymodel->category_home($table_category);
-			$data['product'] = $categorymodel->list_product_index($table_product);
-			$data['restaurants'] = $categorymodel->list_restaurant_index($table_restaurant);
+			$data['category'] = $category_model->listCategory();
+			$data['product'] = $product_model->listProduct();
+			$data['restaurants'] = $restaurant_model->listRestaurant();
 			$this->load->view('home', $data);
 
 		}
-
-		public function lienhe(){
-			// $this->load->view('slider');
-			$table = 'tbl_category_product';
-			$categorymodel = $this->load->model('categorymodel');
-			$data['category'] = $categorymodel->category_home($table);
-			$table_post = 'tbl_category_post';
-			$data['category_post'] = $categorymodel->categorypost_home($table_post);
-			$this->load->view('header',$data);
-			//$this->load->view('slider');
-			$this->load->view('contact');
-			$this->load->view('footer');
-		}
 		
 		public function notfound(){
-			// $this->load->view('slider');
-			// $table = 'tbl_category_product';
-			// $categorymodel = $this->load->model('categorymodel');
-			// $data['category'] = $categorymodel->category_home($table);
-			// $table_post = 'tbl_category_post';
-			// $data['category_post'] = $categorymodel->categorypost_home($table_post);
-
-			// $this->load->view('header',$data);
 			$this->load->view('404');
-			// $this->load->view('footer');
 		}
 
 		

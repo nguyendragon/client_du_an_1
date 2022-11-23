@@ -108,3 +108,9 @@
         </div>
     </div>
 </div>
+<?php if (isset($_SESSION['cart'])) { ?>
+<a href='<?=BASE_URL."/user/cart"?>' class="cart flex justify-center items-center cursor-pointer fixed bg-gray-500 rounded-md">
+	<i class="text-[24px] fa-solid fa-cart-shopping"></i>
+	<span class="quantity"><?=count($_SESSION['cart'])?></span>
+</a>
+<?php } ?>  

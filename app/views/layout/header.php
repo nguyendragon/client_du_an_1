@@ -1,7 +1,3 @@
-<?php
-Session::init();
-?>
-
 <header class="border-b-2">
     <div class="conten flex m-2">
         <div class="dropdown">

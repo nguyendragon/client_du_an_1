@@ -4,7 +4,7 @@ class Load{
 	
 
 	public function __construct(){
-		
+		Session::init();
 	}
 
 	public function view($fileName, $data = false){

@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự Án 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/style.css?time=<?= time() ?>">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <?php include_once "layout/head.php" ?>
 </head>
 
 <body>
@@ -38,7 +30,7 @@
 
                             <div class="grid grid-cols-2 pt-2">
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -50,7 +42,7 @@
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -66,7 +58,7 @@
 
                             <div class="grid grid-cols-2 pt-2">
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -78,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -94,7 +86,7 @@
 
                             <div class="grid grid-cols-2 pt-2">
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -106,7 +98,7 @@
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -122,7 +114,7 @@
 
                             <div class="grid grid-cols-2 pt-2">
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -134,7 +126,7 @@
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -150,7 +142,7 @@
 
                             <div class="grid grid-cols-2 pt-2">
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">
@@ -162,7 +154,7 @@
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-3">
-                                    <div class="h-[100px] w-[100px] bg-[#27ae60] text-center pt-6">
+                                    <div class="h-[100px] w-[100px] flex items-center bg-[#27ae60] text-center">
                                         <span class=" text-white text-[15px]">MIỄN PHÍ VẬN CHUYỂN</span>
                                     </div>
                                     <div class="">

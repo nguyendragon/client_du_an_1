@@ -2,14 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự Án 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/style.css?time=<?= time() ?>">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <?php include_once "layout/head.php" ?>
 </head>
 
 <body>
@@ -22,7 +15,7 @@
             <div class="content">
                 <div class="text-center font-bold text-[20px] mb-[8px]">Chào mừng bạn đến với Loship</div>
                 <p class="text-center">Nhập số điện thoại của bạn để tiếp tục</p>
-                <form id="register" action="<?= BASE_URL ?>/user/register_customer" method="post">
+                <form id="register">
                     <div class="my-[25px] mx-[25px]">
                         <div class="mb-4">
                             <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="email" placeholder="Nhập địa chỉ email" />
@@ -76,18 +69,35 @@
                     text: 'Mật khẩu xác nhận không chính xác!',
                 })
             }
-            $('#register').submit();
+
+            $.ajax({
+                type: "POST",
+                url: "<?= BASE_URL ?>/user/register_customer",
+                data: {
+                    email: email,
+                    password: password,
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.status == '1') {
+                        Swal.fire(
+                            'Good job!',
+                            response.message,
+                            'success'
+                        );
+                        setTimeout(() => {
+                            window.location.href = '<?= BASE_URL . "/" ?>';
+                        }, 1500);
+                    } else {
+                        return Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: response.message,
+                        })
+                    }
+                }
+            });
         });
-        <?php if (isset($_GET['status']) && $_GET['status'] == 1) : ?>
-            Swal.fire(
-                'Good job!',
-                'Đăng ký tài khoản thành công!',
-                'success'
-            );
-            setTimeout(() => {
-                window.location.href = '<?=BASE_URL."/user/login"?>';
-            }, 1500);
-        <?php endif ?>
     </script>
 </body>
 

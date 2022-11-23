@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự Án 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/style.css?time=<?= time() ?>">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <?php include_once "layout/head.php" ?>
 </head>
 
 <body>
@@ -26,7 +18,7 @@
                                 <h1 class="text-md">Thẻ tín dụng/ Ghi nợ</h1>
                                 <div class="">
                                     <button class="flex items-center bg-[#e74c3c] text-center text-white rounded p-2 flex">
-                                        <i class=" fa fa-plus-square-o text-[22px] mr-2" aria-hidden="true"></i>
+                                        <i class="fa-solid fa-plus mr-2"></i>
                                         <p class="text-sm">Thêm thẻ mới</p>
                                     </button>
                                 </div>
@@ -42,7 +34,7 @@
                                 <h1 class="text-md">Tài khoản ngân hàng của tôi</h1>
                                 <div class="">
                                     <button class="flex items-center bg-[#e74c3c] text-center text-white rounded p-2 flex">
-                                        <i class=" fa fa-plus-square-o text-[22px] mr-2" aria-hidden="true"></i>
+                                        <i class="fa-solid fa-plus mr-2"></i>
                                         <p class="text-sm">Thêm tài khoản ngân hàng</p>
                                     </button>
                                 </div>
